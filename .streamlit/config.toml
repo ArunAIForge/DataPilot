@@ -1,0 +1,21 @@
+[theme]
+primaryColor = "#0e7490"
+backgroundColor = "#f0fdfa"
+secondaryBackgroundColor = "#ffffff"
+textColor = "#0c2430"
+
+[server]
+headless = true
+maxUploadSize = 25
+enableXsrfProtection = true
+runOnSave = false
+
+[browser]
+gatherUsageStats = false
+
+[client]
+toolbarMode = "minimal"      # hides Deploy / Streamlit menu
+showErrorDetails = "type"    # show the error type only (no stack traces), so failures are never silent
+
+[runner]
+fastReruns = true

@@ -33,14 +33,17 @@ Edit `.env`: set the provider and ONE key, then restart the app.
 LLM_PROVIDER=groq            # or openrouter | openai
 GROQ_API_KEY=your_key_here   # or OPENROUTER_API_KEY / OPENAI_API_KEY
 ```
-You can also pick the provider in the sidebar; it shows "Ready" once the key is found.
-No key? Choose **mock (offline demo)** in the sidebar: scripted agent replies, real code execution.
+You can also click a provider card in the sidebar: 🟢 means a key was found, ⚪ means no key, and the active card shows ACTIVE.
+No key? Click the **Mock (offline demo)** card in the sidebar: scripted agent replies, real code execution.
 
 ### Use the app
 1. Click **Use sample data** (or upload a CSV with columns like `order_date, region, category, product, units, unit_price, discount`).
 2. Keep the default question or type your own.
 3. Click **Run analysis** and watch the agents plan, code, hit errors and fix them.
 4. Read the answer and charts, download `analysis.py`, click **Approve**, or ask a follow-up.
+
+Uploads are validated first: CSV only, up to 25 MB and 500,000 rows, at least 2 columns, and at least one numeric column.
+Anything else shows a readable error instead of starting a run.
 
 ### Troubleshooting
 - `py -3.12` not found: install Python 3.12 from python.org.
@@ -87,7 +90,9 @@ Code runs only in `runs/<session>/` (or Docker with `EXECUTOR=docker`). A pre-ru
 ```
 ```powershell
 & $env:USERPROFILE\venvs\datapilot\Scripts\python.exe -m pytest -q   # offline, no keys
+& $env:USERPROFILE\venvs\datapilot\Scripts\python.exe -m pyflakes app.py src tests   # static check
 ```
+GitHub Actions (`.github/workflows/ci.yml`) runs the offline tests on each push.
 
 ## Docs
 `CLAUDE.md` · `docs/ARCHITECTURE.md` · `docs/TESTING_CHECKLIST.md` · `PRPs/INITIAL.md` · `PRPs/datapilot_agents.md`

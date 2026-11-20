@@ -1,0 +1,4 @@
+-r requirements.txt
+pytest>=8.0
+playwright>=1.45   # tests/e2e_smoke.py (drives your installed Chrome)
+pyflakes>=3.2

@@ -1,0 +1,6 @@
+autogen-agentchat>=0.7   # AssistantAgent, CodeExecutorAgent, teams, termination
+autogen-ext[openai]>=0.7 # OpenAI-compatible client (OpenAI, Groq, OpenRouter, Gemini), local executor, replay mock
+streamlit>=1.40
+pandas>=2.2
+matplotlib>=3.8
+python-dotenv>=1.0
